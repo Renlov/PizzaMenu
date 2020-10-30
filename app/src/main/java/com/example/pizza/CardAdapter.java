@@ -1,5 +1,6 @@
 package com.example.pizza;
-
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,23 +13,32 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterHolder> {
-
+    Context context;
     private ArrayList<CardResource> arrayList;
 
-    public CardAdapter(ArrayList<CardResource> arrayList){
+    public CardAdapter(ArrayList<CardResource> arrayList, Context context){
         this.arrayList = arrayList;
+        this.context = context;
     }
 
-    public class CardAdapterHolder extends RecyclerView.ViewHolder {
+    public class CardAdapterHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView imageView;
         public TextView textView1;
         public TextView textView2;
 
-        public CardAdapterHolder(@NonNull View itemView) {
+        public CardAdapterHolder(@NonNull final View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             imageView = itemView.findViewById(R.id.imageView);
             textView1 = itemView.findViewById(R.id.text1);
             textView2 = itemView.findViewById(R.id.text2);
+
+            }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(context, MainActivity2.class);
+            context.startActivity(intent);
         }
     }
 
@@ -43,10 +53,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterHol
 
     @Override
     public void onBindViewHolder(@NonNull CardAdapterHolder holder, int position) {
-        CardResource cardResource = arrayList.get(position);
+        final CardResource cardResource = arrayList.get(position);
         holder.imageView.setImageResource(cardResource.getImageResource());
         holder.textView1.setText(cardResource.getText1());
         holder.textView2.setText(cardResource.getText2());
+
     }
 
     @Override

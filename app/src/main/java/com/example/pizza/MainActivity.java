@@ -1,10 +1,15 @@
 package com.example.pizza;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -12,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    CardView button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +33,11 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(new CardResource(R.drawable.margarita, "Маргарита", "Томатный соус, в два раза больше нежного сыра Моцарелла, томаты черри, специи «Томаты и оливки»"));
         recyclerView = findViewById(R.id.mainCard);
         recyclerView.setHasFixedSize(true);
-        adapter = new CardAdapter(arrayList);
+        adapter = new CardAdapter(arrayList, this);
         layoutManager =new LinearLayoutManager(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
 
-
-
     }
+
 }
