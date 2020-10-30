@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    CardView button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +36,5 @@ public class MainActivity extends AppCompatActivity {
         layoutManager =new LinearLayoutManager(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
-
     }
-
 }

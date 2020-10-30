@@ -37,8 +37,13 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterHol
 
         @Override
         public void onClick(View v) {
+            int position = getAdapterPosition();
+            CardResource cardResource = arrayList.get(position);
+
             Intent intent = new Intent(context, MainActivity2.class);
+            intent.putExtra("imageResource", cardResource.getImageResource());
             context.startActivity(intent);
+
         }
     }
 
