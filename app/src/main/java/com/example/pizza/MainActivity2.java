@@ -3,12 +3,10 @@ package com.example.pizza;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Objects;
 
 public class MainActivity2 extends AppCompatActivity {
 
