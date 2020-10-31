@@ -1,6 +1,9 @@
 package com.example.pizza;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +45,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardAdapterHol
 
             Intent intent = new Intent(context, MainActivity2.class);
             intent.putExtra("imageResource", cardResource.getImageResource());
+            intent.putExtra("text1", cardResource.getText1());
+            intent.putExtra("text2", cardResource.getText2());
             context.startActivity(intent);
 
         }

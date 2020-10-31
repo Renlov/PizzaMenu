@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Pizza</string>
+    <string name="app_name">Меню</string>
+    <string name="imageTransfer">image</string>
 </resources>
